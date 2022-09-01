@@ -6,6 +6,7 @@ import {PageRootSubtitle, PageRootTitle, PageRootWrapper} from '../common/styled
 import {Login} from './auth/login';
 import {Registration} from './auth/registration';
 import {Content} from './content/content';
+import {PlugPage} from './plug-page';
 
 export function PageRoot() {
   const [isAuth, setIsAuth] = useState(false);
@@ -21,6 +22,7 @@ export function PageRoot() {
         </PageRootSubtitle>
 
         <Routes>
+          <Route path={'*'} element={<PlugPage/>}/>
           <Route path={'/'} element={<Login/>}/>
           <Route path={'/registration'} element={<Registration/>}/>
         </Routes>
@@ -30,6 +32,7 @@ export function PageRoot() {
 
   return (
     <Routes>
+      <Route path={'*'} element={<PlugPage/>}/>
       <Route path={'/'} element={<Content/>}/>
     </Routes>
   );

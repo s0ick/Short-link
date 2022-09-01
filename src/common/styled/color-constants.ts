@@ -5,4 +5,7 @@ export const HINT_TEXT_COLOR = '#737577';
 export const ACTION_COLOR = '#008EFF';
 export const ACTION_HOVER_COLOR = '#007EE5';
 
+export const SUCCESS = '#00E676';
+export const ERROR = '#FF1744';
+
 export const TRANSPARENT_COLOR = 'transparent';

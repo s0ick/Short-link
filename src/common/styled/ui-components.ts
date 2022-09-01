@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-import {IInputProps} from '../types';
+import {IInputProps, NotificationsStylesProps} from '../types';
 
-import {ACTION_COLOR, ACTION_HOVER_COLOR, TEXT_COLOR} from './color-constants';
+import {ACTION_COLOR, ACTION_HOVER_COLOR, BACKGROUND_COLOR, ERROR, SUCCESS, TEXT_COLOR} from './color-constants';
+import {slideLeft, slideRight} from './animations';
 
 export const PageRootWrapper = styled.div`
   display: flex;
@@ -100,6 +101,53 @@ export const Button = styled.div`
   :hover {
     cursor: pointer;
     background-color: ${ACTION_HOVER_COLOR};
+  }
+`;
+
+export const NotificationsWrapper = styled.div`
+  width: 300px;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+`;
+
+export const NotificationItem = styled.div<NotificationsStylesProps>`
+  overflow: hidden;
+  margin-bottom: 20px;
+  width: 300px;
+  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+
+  animation: ${props => (props.exit ? slideRight : slideLeft)} .4s;
+  animation-fill-mode: forwards;
+  
+  background-color: ${TEXT_COLOR};
+  color: ${BACKGROUND_COLOR};
+  
+  transition: background-color .2s ease-in;
+  
+  h3 {
+    padding: 0;
+    padding-left: 15px;
+    padding-top: 10px;
+    margin: 0;
+    
+    font-size: 16px;
+  }
+  
+  p {
+    margin: 0;
+    padding: 10px;
+    padding-left: 15px;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  
+  div {
+    background-color: ${props => (props.isSuccess ? SUCCESS : ERROR)};
+    height: 5px;
   }
 `;
 
