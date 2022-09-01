@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 
 import {PageRootSubtitle, PageRootTitle, PageRootWrapper, Button} from '../common/styled/ui-components';
 
-export const PlugPage = () => {
+export const PagePlug = () => {
   return (
     <PageRootWrapper>
       <PageRootTitle>{'Page Not Found'}</PageRootTitle>

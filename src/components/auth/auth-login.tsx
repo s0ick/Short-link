@@ -5,7 +5,7 @@ import {Button, Input, InputBlock} from '../../common/styled/ui-components';
 
 import {AuthLink, AuthWrapper} from './auth.styled';
 
-export const Login: FC = () => {
+export const AuthLogin: FC = () => {
   return (
     <AuthWrapper>
       <InputBlock>

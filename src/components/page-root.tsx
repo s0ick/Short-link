@@ -3,10 +3,10 @@ import {Route, Routes} from 'react-router-dom';
 
 import {PageRootSubtitle, PageRootTitle, PageRootWrapper} from '../common/styled/ui-components';
 
-import {Login} from './auth/login';
-import {Registration} from './auth/registration';
+import {AuthLogin} from './auth/auth-login';
+import {AuthRegistration} from './auth/auth-registration';
 import {Content} from './content/content';
-import {PlugPage} from './plug-page';
+import {PagePlug} from './page-plug';
 
 export function PageRoot() {
   const [isAuth, setIsAuth] = useState(false);
@@ -22,9 +22,9 @@ export function PageRoot() {
         </PageRootSubtitle>
 
         <Routes>
-          <Route path={'*'} element={<PlugPage/>}/>
-          <Route path={'/'} element={<Login/>}/>
-          <Route path={'/registration'} element={<Registration/>}/>
+          <Route path={'*'} element={<PagePlug/>}/>
+          <Route path={'/'} element={<AuthLogin/>}/>
+          <Route path={'/registration'} element={<AuthRegistration/>}/>
         </Routes>
       </PageRootWrapper>
     );
@@ -32,7 +32,7 @@ export function PageRoot() {
 
   return (
     <Routes>
-      <Route path={'*'} element={<PlugPage/>}/>
+      <Route path={'*'} element={<PagePlug/>}/>
       <Route path={'/'} element={<Content/>}/>
     </Routes>
   );
