@@ -79,54 +79,54 @@ export const AuthRegistration: FC = () => {
     }, [notification]
   );
 
+  if (success) {
+    return <Navigate to={'/'}/>;
+  }
+
   return (
-    <>
-      {success && <Navigate to={'/'}/>}
+    <AuthWrapper>
+      <InputBlock>
+        <Input
+          pl={105}
+          type={'text'}
+          name={'auth/username'}
+          value={username}
+          onInput={onChangeInputs}
+        />
+        <label>{'Username:'}</label>
+      </InputBlock>
 
-      <AuthWrapper>
-        <InputBlock>
-          <Input
-            pl={105}
-            type={'text'}
-            name={'auth/username'}
-            value={username}
-            onInput={onChangeInputs}
-          />
-          <label>{'Username:'}</label>
-        </InputBlock>
+      <InputBlock>
+        <Input
+          pl={100}
+          type={'password'}
+          name={'auth/password'}
+          value={password}
+          onInput={onChangeInputs}
+        />
+        <label>{'Password:'}</label>
+      </InputBlock>
 
-        <InputBlock>
-          <Input
-            pl={100}
-            type={'password'}
-            name={'auth/password'}
-            value={password}
-            onInput={onChangeInputs}
-          />
-          <label>{'Password:'}</label>
-        </InputBlock>
+      <InputBlock>
+        <Input
+          pl={165}
+          type={'password'}
+          name={'auth/repeat-password'}
+          value={repeatPassword}
+          onInput={onChangeInputs}
+        />
+        <label>{'Repeat password:'}</label>
+      </InputBlock>
 
-        <InputBlock>
-          <Input
-            pl={165}
-            type={'password'}
-            name={'auth/repeat-password'}
-            value={repeatPassword}
-            onInput={onChangeInputs}
-          />
-          <label>{'Repeat password:'}</label>
-        </InputBlock>
+      <Button onClick={onSighUp}>
+        {'Sign up'}
+      </Button>
 
-        <Button onClick={onSighUp}>
-          {'Sign up'}
-        </Button>
-
-        <NavLink to={'/'}>
-          <AuthLink>
-            {'Already have an account'}
-          </AuthLink>
-        </NavLink>
-      </AuthWrapper>
-    </>
+      <NavLink to={'/'}>
+        <AuthLink>
+          {'Already have an account'}
+        </AuthLink>
+      </NavLink>
+    </AuthWrapper>
   );
 }

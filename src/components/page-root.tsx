@@ -11,6 +11,10 @@ import {PagePlug} from './page-plug';
 export function PageRoot() {
   const [isAuth, setIsAuth] = useState(false);
 
+  const onChangeAuth = () => {
+    setIsAuth(true);
+  };
+
   if (!isAuth) {
     return (
       <PageRootWrapper>
@@ -23,7 +27,7 @@ export function PageRoot() {
 
         <Routes>
           <Route path={'*'} element={<PagePlug/>}/>
-          <Route path={'/'} element={<AuthLogin/>}/>
+          <Route path={'/'} element={<AuthLogin onChangeAuth={onChangeAuth}/>}/>
           <Route path={'/registration'} element={<AuthRegistration/>}/>
         </Routes>
       </PageRootWrapper>

@@ -40,3 +40,7 @@ export interface NotificationsStylesProps {
   isSuccess: boolean,
   exit: boolean
 }
+
+export interface LoginProps {
+  onChangeAuth: () => void;
+}
