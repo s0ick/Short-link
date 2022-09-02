@@ -2,7 +2,15 @@ import styled from 'styled-components';
 
 import {IInputProps, NotificationsStylesProps} from '../types';
 
-import {ACTION_COLOR, ACTION_HOVER_COLOR, BACKGROUND_COLOR, ERROR, SUCCESS, TEXT_COLOR} from './color-constants';
+import {
+  ACTION_COLOR,
+  ACTION_HOVER_COLOR,
+  BACKGROUND_COLOR,
+  ERROR,
+  HINT_TEXT_COLOR,
+  SUCCESS,
+  TEXT_COLOR
+} from './color-constants';
 import {slideLeft, slideRight} from './animations';
 
 export const PageRootWrapper = styled.div`
@@ -47,6 +55,7 @@ export const InputBlock = styled.div`
     position: absolute;
     top: 10px;
     transition: color .35s, top .35s;
+    color: ${HINT_TEXT_COLOR};
   }
 `;
 
@@ -58,7 +67,8 @@ export const Input = styled.input<IInputProps>`
   font-size: 20px;
   outline: none;
   border: none;
-  border-bottom: 2px solid ${TEXT_COLOR};
+  color: ${HINT_TEXT_COLOR};
+  border-bottom: 2px solid ${HINT_TEXT_COLOR};
   
   padding: 10px;
   padding-left: ${props => `${props.pl}px`};

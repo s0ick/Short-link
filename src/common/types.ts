@@ -44,3 +44,19 @@ export interface NotificationsStylesProps {
 export interface LoginProps {
   onChangeAuth: () => void;
 }
+
+export interface ISqueezePayload {
+  id: number,
+  counter: number,
+  short: string,
+  target: string
+}
+
+export interface ISqueezeLink {
+  isMain: boolean
+}
+
+export interface IconProps {
+  size?: number,
+  color?: string
+}

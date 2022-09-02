@@ -30,7 +30,5 @@ export const GlobalStyles = createGlobalStyle`
     overflow: hidden;
   }
 
-  input {outline: none; font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Arial, sans-serif;appearance: none;};
-  input::-moz-placeholder {color: ${BACKGROUND_COLOR}};
-  input::-webkit-input-placeholder {color: ${TEXT_COLOR}};
+  input {outline: none; font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Arial, sans-serif;appearance: none;}
 `;

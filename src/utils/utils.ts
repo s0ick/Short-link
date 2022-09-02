@@ -8,3 +8,6 @@ export const uuid = () => {
     return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16);
   });
 };
+
+export const copyToClipboard = (href: string, onSuccess: () => void, onFail: () => void) =>
+  navigator.clipboard.writeText(href).then(onSuccess).catch(onFail);

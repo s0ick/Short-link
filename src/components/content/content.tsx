@@ -1,7 +1,12 @@
 import React, {FC} from 'react';
 
+import {Squeeze} from './squeeze/squeeze';
+import {ContentWrapper} from './content.styled';
+
 export const Content: FC = () => {
   return (
-    <div>{'Hello Content'}</div>
+    <ContentWrapper>
+      <Squeeze/>
+    </ContentWrapper>
   );
 }

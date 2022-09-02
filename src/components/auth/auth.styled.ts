@@ -15,7 +15,6 @@ export const AuthLink = styled.div`
   color: ${TEXT_COLOR};
   
   margin-top: 30px;
-  text-decoration: none;
   transition: color .35s;
   
   :hover {
