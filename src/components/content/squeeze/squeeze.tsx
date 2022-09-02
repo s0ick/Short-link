@@ -15,7 +15,6 @@ import {
   SqueezeBlock,
   SqueezeWrapper,
   SqueezeSubtitle,
-  SqueezeHero,
   SqueezeLinks,
   SqueezeLink
 } from './squeeze.styled';
@@ -98,59 +97,57 @@ export const Squeeze: FC = () => {
 
   return (
     <SqueezeWrapper>
-      <SqueezeHero>
+      <SqueezeBlock>
+        <SqueezeSubtitle>
+          {'Here you need to put a link to get it\'s abbreviated version'}
+        </SqueezeSubtitle>
+
+        <InputBlock>
+          <Input
+            pl={50}
+            type={'text'}
+            name={'squeeze/link'}
+            value={fullURL}
+            onInput={handleChange}
+          />
+          <label>{'Link:'}</label>
+        </InputBlock>
+
+        <Button onClick={generateShortURL}>
+          {'Generate'}
+        </Button>
+      </SqueezeBlock>
+
+      {payload && (
         <SqueezeBlock>
           <SqueezeSubtitle>
-            {'Here you need to put a link to get it\'s abbreviated version'}
+            {'Result'}
           </SqueezeSubtitle>
 
-          <InputBlock>
-            <Input
-              pl={50}
-              type={'text'}
-              name={'squeeze/link'}
-              value={fullURL}
-              onInput={handleChange}
-            />
-            <label>{'Link:'}</label>
-          </InputBlock>
+          <SqueezeLinks>
+            <SqueezeLink isMain>
+              <a href={payload.target}>
+                {`Original link: ${payload.target}`}
+              </a>
 
-          <Button onClick={generateShortURL}>
-            {'Generate'}
-          </Button>
-        </SqueezeBlock>
-
-        {payload && (
-          <SqueezeBlock>
-            <SqueezeSubtitle>
-              {'Result'}
-            </SqueezeSubtitle>
-
-            <SqueezeLinks>
-              <SqueezeLink isMain>
-                <a href={payload.target}>
-                  {`Original link: ${payload.target}`}
-                </a>
-
-                <span title={'Copy'} onClick={() => copyUrl(payload.target)}>
+              <span title={'Copy'} onClick={() => copyUrl(payload.target)}>
                   <CopyIcon size={20} color={HINT_TEXT_COLOR}/>
                 </span>
-              </SqueezeLink>
+            </SqueezeLink>
 
-              <SqueezeLink isMain={false}>
-                <a href={`http://79.143.31.216/s/${payload.short}`}>
-                  {`Short link: http://79.143.31.216/s/${payload.short}`}
-                </a>
+            <SqueezeLink isMain={false}>
+              <a href={`http://79.143.31.216/s/${payload.short}`}>
+                {`Short link: http://79.143.31.216/s/${payload.short}`}
+              </a>
 
-                <span title={'Copy'} onClick={() => copyUrl(`http://79.143.31.216/s/${payload.short}`)}>
+              <span title={'Copy'} onClick={() => copyUrl(`http://79.143.31.216/s/${payload.short}`)}>
                   <CopyIcon size={20} color={ACTION_COLOR}/>
                 </span>
-              </SqueezeLink>
-            </SqueezeLinks>
+            </SqueezeLink>
+          </SqueezeLinks>
 
-          </SqueezeBlock>
-        )}
-      </SqueezeHero>
+        </SqueezeBlock>
+      )}
     </SqueezeWrapper>
   );
 }

@@ -5,18 +5,12 @@ import {ISqueezeLink} from '../../../common/types';
 
 export const SqueezeWrapper = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
 `;
 
 export const SqueezeSubtitle = styled.div`
   font-size: 16px;
-`;
-
-export const SqueezeHero = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
 `;
 
 export const SqueezeBlock = styled.div`
