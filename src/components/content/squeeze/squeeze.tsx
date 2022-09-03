@@ -45,31 +45,33 @@ export const Squeeze: FC = () => {
 
       const encodeURL = encodeURI(fullURL);
 
-      axiosRequest
-        .post(`/squeeze?link=${encodeURL}`)
-        .then(response => {
-          setFullURL('');
-          setPayload(response.data);
+      (async () => {
+        await axiosRequest
+          .post(`/squeeze?link=${encodeURL}`)
+          .then(response => {
+            setFullURL('');
+            setPayload(response.data);
 
-          notification({
-            type: NotificationTypes.SUC,
-            title: 'Generation completed',
-            message: 'A short version of your link has been created',
-            delay: 25
+            notification({
+              type: NotificationTypes.SUC,
+              title: 'Generation completed',
+              message: 'A short version of your link has been created',
+              delay: 25
+            });
+          })
+          .catch(error => {
+            console.log(error);
+
+            notification({
+              type: NotificationTypes.ERR,
+              title: 'Some error',
+              message: 'Something went wrong. Try later',
+              delay: 25
+            });
           });
-        })
-        .catch(error => {
-          console.log(error);
+      })();
 
-          notification({
-            type: NotificationTypes.ERR,
-            title: 'Some error',
-            message: 'Something went wrong. Try later',
-            delay: 25
-          });
-        });
-
-    }, [fullURL, notification]
+    }, [fullURL]
   );
 
   const copyUrl = useCallback(

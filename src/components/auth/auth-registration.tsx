@@ -55,28 +55,30 @@ export const AuthRegistration: FC = () => {
         });
       }
 
-      axiosRequest
-        .post(`/register?username=${username}&password=${password}`)
-        .then(response => {
-          notification({
-            type: NotificationTypes.SUC,
-            title: `Welcome, ${response.data.username}!`,
-            message: 'Registration completed successfully',
-            delay: 20
-          });
-          setSuccess(true);
-        })
-        .catch((error: any) => {
-          console.log(error);
+      (async () => {
+        await axiosRequest
+          .post(`/register?username=${username}&password=${password}`)
+          .then(response => {
+            notification({
+              type: NotificationTypes.SUC,
+              title: `Welcome, ${response.data.username}!`,
+              message: 'Registration completed successfully',
+              delay: 20
+            });
+            setSuccess(true);
+          })
+          .catch((error: any) => {
+            console.log(error);
 
-          notification({
-            type: NotificationTypes.ERR,
-            title: 'Some error',
-            message: 'Something went wrong. Try later',
-            delay: 20
+            notification({
+              type: NotificationTypes.ERR,
+              title: 'Some error',
+              message: 'Something went wrong. Try later',
+              delay: 20
+            });
           });
-        });
-    }, [notification]
+      })();
+    }, [username, password, repeatPassword]
   );
 
   if (success) {

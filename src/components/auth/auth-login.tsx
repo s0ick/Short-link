@@ -47,30 +47,32 @@ export const AuthLogin: FC<LoginProps> = ({onChangeAuth}) => {
       params.append('username', username);
       params.append('password', password);
 
-      axiosRequest
-        .post('/login', params)
-        .then(response => {
-          const token = response.data['access_token'];
-          localStorage.setItem(SL_ACCESS_TOKEN, token);
-          onChangeAuth();
+      (async () => {
+        await axiosRequest
+          .post('/login', params)
+          .then(response => {
+            const token = response.data['access_token'];
+            localStorage.setItem(SL_ACCESS_TOKEN, token);
+            onChangeAuth();
 
-          notification({
-            type: NotificationTypes.SUC,
-            message: 'Login successful',
-            delay: 12
-          });
-        })
-        .catch((error) => {
-          console.log(error);
+            notification({
+              type: NotificationTypes.SUC,
+              message: 'Login successful',
+              delay: 12
+            });
+          })
+          .catch((error) => {
+            console.log(error);
 
-          notification({
-            type: NotificationTypes.ERR,
-            title: 'Some error',
-            message: 'Something went wrong. Try later',
-            delay: 20
+            notification({
+              type: NotificationTypes.ERR,
+              title: 'Some error',
+              message: 'Something went wrong. Try later',
+              delay: 20
+            });
           });
-        });
-    }, [notification]
+      })();
+    }, [username, password]
   );
 
   return (
