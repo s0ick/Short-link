@@ -74,3 +74,7 @@ export interface TableColumnProps {
   textAlign: string,
   isLarge: boolean
 }
+
+export interface ActionButton {
+  dis: boolean
+}

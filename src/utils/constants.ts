@@ -7,6 +7,11 @@ export enum NotificationTypes {
   ERR = 'ERROR'
 }
 
+export enum Operations {
+  INC = 'increment',
+  DEC = 'decrement'
+}
+
 export const LIMIT_SELECTOR_CONFIG = [
   {value: '10', label: '10'},
   {value: '20', label: '20'},
