@@ -60,3 +60,8 @@ export interface IconProps {
   size?: number,
   color?: string
 }
+
+export interface SelectOption {
+  label: string,
+  value: string
+}
