@@ -36,7 +36,7 @@ export const Squeeze: FC = () => {
       setPayload(null);
 
       if (!URL_REG_EX.test(fullURL)) {
-        notification({
+        return notification({
           type: NotificationTypes.ERR,
           message: 'Entered incorrect URL',
           delay: 15

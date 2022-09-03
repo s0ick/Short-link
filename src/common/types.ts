@@ -65,3 +65,12 @@ export interface SelectOption {
   label: string,
   value: string
 }
+
+export interface TableRowProps {
+  bg: boolean
+}
+
+export interface TableColumnProps {
+  textAlign: string,
+  isLarge: boolean
+}

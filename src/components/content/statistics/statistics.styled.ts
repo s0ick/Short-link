@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-import {HINT_TEXT_COLOR} from '../../../common/styled/color-constants';
+import {HINT_TEXT_COLOR, TABLE_ROW_BACKGROUND_COLOR, TRANSPARENT} from '../../../common/styled/color-constants';
+import {TableColumnProps, TableRowProps} from '../../../common/types';
 
 export const StatisticsWrapper = styled.div`
   margin-top: 50px;
@@ -26,14 +27,27 @@ export const StatisticsLabel = styled.div`
   margin-bottom: 10px;
 `;
 
-export const StatisticsTable = styled.table``;
+export const StatisticsTable = styled.table`
+  margin-top: 50px;
+  width: 100%;
+`;
 
 export const StatisticsTableBody = styled.tbody``;
 
-export const StatisticsTableRow = styled.tr``;
+export const StatisticsTableRow = styled.tr<TableRowProps>`
+  height: 35px;
+  background-color: ${props => props.bg ? TRANSPARENT : TABLE_ROW_BACKGROUND_COLOR};
+`;
 
-export const StatisticsTableTitleColumn = styled.th``;
+export const StatisticsTableTitleColumn = styled.th`
+  color: ${HINT_TEXT_COLOR};
+  border-bottom: 1px solid ${HINT_TEXT_COLOR};
+`;
 
-export const StatisticsTableColumn = styled.td``;
+export const StatisticsTableColumn = styled.td<TableColumnProps>`
+  min-width: ${props => props.isLarge ? '1200px' : '120px'};
+  text-align: ${props => props.textAlign};
+  padding-left: ${props => props.textAlign === 'left' ? '20px' : '0'};
+`;
 
 

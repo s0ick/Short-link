@@ -11,6 +11,7 @@ export const SqueezeWrapper = styled.div`
 
 export const SqueezeSubtitle = styled.div`
   font-size: 16px;
+  width: 415px;
 `;
 
 export const SqueezeBlock = styled.div`

@@ -8,4 +8,6 @@ export const ACTION_HOVER_COLOR = '#007EE5';
 export const SUCCESS = '#00E676';
 export const ERROR = '#FF1744';
 
-export const TRANSPARENT_COLOR = 'transparent';
+export const TABLE_ROW_BACKGROUND_COLOR = '#c0d8e8';
+
+export const TRANSPARENT = 'transparent';

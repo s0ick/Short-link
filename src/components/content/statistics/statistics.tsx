@@ -108,7 +108,7 @@ export const Statistics: FC = () => {
       {tableData && (
         <StatisticsTable>
           <StatisticsTableBody>
-            <StatisticsTableRow>
+            <StatisticsTableRow bg>
               <StatisticsTableTitleColumn>
                 {'Original Link'}
               </StatisticsTableTitleColumn>
@@ -120,15 +120,15 @@ export const Statistics: FC = () => {
               </StatisticsTableTitleColumn>
             </StatisticsTableRow>
 
-            {tableData.map(row =>
-              <StatisticsTableRow key={`table-row-${row.id}-${row.short}`}>
-                <StatisticsTableColumn>
+            {tableData.map((row, index) =>
+              <StatisticsTableRow key={`table-row-${row.id}-${row.short}`} bg={index % 2 === 0}>
+                <StatisticsTableColumn isLarge textAlign={'left'}>
                   {row.target}
                 </StatisticsTableColumn>
-                <StatisticsTableColumn>
+                <StatisticsTableColumn isLarge={false} textAlign={'center'}>
                   {row.short}
                 </StatisticsTableColumn>
-                <StatisticsTableColumn>
+                <StatisticsTableColumn isLarge={false} textAlign={'center'}>
                   {row.counter}
                 </StatisticsTableColumn>
               </StatisticsTableRow>
