@@ -2,7 +2,7 @@
   "name": "short-link",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://s0ick.github.io/Short-link",
+  "homepage": "https://s0ick.github.io",
   "dependencies": {
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.56",

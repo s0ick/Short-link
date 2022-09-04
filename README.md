@@ -1,4 +1,6 @@
-## Live Demo: [Short link](https://s0ick.github.io/Short-link)
+## Live Demo: [Short link](https://s0ick.github.io)
+
+### `At the current time, I am waiting for DNS servers to be updated to change a domain that does not have an SSL certificate`
 
 ## Getting Started with Create React App
 
