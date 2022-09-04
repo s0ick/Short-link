@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {ActionButton, TableColumnProps, TableRowProps} from '../../../common/types';
 
 import {
+  ACTION_COLOR,
   BACKGROUND_COLOR,
   HINT_TEXT_COLOR,
   SECONDARY_BACKGROUND_COLOR,
@@ -55,6 +56,15 @@ export const StatisticsTableColumn = styled.td<TableColumnProps>`
   min-width: ${props => props.isLarge ? '1200px' : '120px'};
   text-align: ${props => props.textAlign};
   padding-left: ${props => props.textAlign === 'left' ? '20px' : '0'};
+  
+  a {
+    color: ${TEXT_COLOR};
+    transition: color.35s;
+    
+    :hover {
+      color: ${ACTION_COLOR};
+    }
+  }
 `;
 
 export const StatisticsActions = styled.div`

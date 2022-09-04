@@ -139,7 +139,7 @@ export const Statistics: FC = () => {
                 {'Original Link'}
               </StatisticsTableTitleColumn>
               <StatisticsTableTitleColumn>
-                {'Short Link'}
+                {'Short Key'}
               </StatisticsTableTitleColumn>
               <StatisticsTableTitleColumn>
                 {'Number of transition'}
@@ -149,10 +149,14 @@ export const Statistics: FC = () => {
             {tableData.map((row, index) =>
               <StatisticsTableRow key={`table-row-${row.id}-${row.short}`} bg={index % 2 === 0}>
                 <StatisticsTableColumn isLarge textAlign={'left'}>
-                  {row.target}
+                  <a href={row.target}>
+                    {row.target}
+                  </a>
                 </StatisticsTableColumn>
                 <StatisticsTableColumn isLarge={false} textAlign={'center'}>
-                  {row.short}
+                  <a href={`http://79.143.31.216/s/${row.short}`}>
+                    {row.short}
+                  </a>
                 </StatisticsTableColumn>
                 <StatisticsTableColumn isLarge={false} textAlign={'center'}>
                   {row.counter}
